@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+local_exit_code=$?
+if [[ $local_exit_code -ne 0 ]]; then
+  echo -e "\033[33m┌────────────────────────────────────────────────────────────────────┐\033[0m"
+  echo -e "\033[33m│ The failure in this hook does not impact the outcome of this build │\033[0m"
+  echo -e "\033[33m└────────────────────────────────────────────────────────────────────┘\033[0m"
+fi
+exit $local_exit_code
