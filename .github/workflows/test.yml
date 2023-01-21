@@ -1,0 +1,26 @@
+name: test
+
+on:
+  - push
+  - pull_request
+
+jobs:
+  linux:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: 'script -q -e -c "bash {0}"' # create TTY so that -t STDIN works
+    strategy:
+      matrix:
+        bash-version:
+          - '5.0-buster'
+          - '3.2-macos'
+          - 'latest'
+    container:
+      image: bash:${{ matrix.bash-version }}
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install Dependencies
+        run: |
+        echo "command"
+        
