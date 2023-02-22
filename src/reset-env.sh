@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env bash --noprofile --norc -eo pipefail {0}
 
 # Since bash 5.0, checkwinsize is enabled by default which does
 # update the COLUMNS variable every time a non-builtin command
