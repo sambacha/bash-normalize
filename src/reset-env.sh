@@ -16,17 +16,10 @@ COLUMNS=80
 export LANG LC_ALL PAGER TZ COLUMNS
 EDITOR=:
 
-
-
+# This limits recursive functions. see BASH(1)
+[[ -z "$FUNCNEST" ]] && export FUNCNEST=100          
 
 if [ "$1" == "-h" ]; then
   usage
   exit 1
 fi
-
-# shellcheck disable=SC1091
-source /root/.profile
-
-set -euo pipefail
-
-cd "$(dirname "${BASH_SOURCE[0]}")"/..
