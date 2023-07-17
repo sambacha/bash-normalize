@@ -47,5 +47,11 @@ if [[ -n "${BASHNORMALIZE_DEBUG:-}" ]]; then
 	shopt -s extdebug
 fi
 
+# simplifies both the tag name used when making a release
+# and the computed version number take the date/time from the current
+# commit, and then append the hash.  That way the version number always
+# corresponds to a commit.
+VERSION_ID=${VERSION_ID:-$(git show -s "--format=%cd-%h" "--date=format:%Y%m%d-%H%M%S")}
+
 # Start at the end:
 [[ ${BASH_SOURCE[0]} != "$0" ]] || main "$@"
