@@ -15,6 +15,7 @@ TZ=UTC
 COLUMNS=80
 export LANG LC_ALL PAGER TZ COLUMNS
 EDITOR=:
+# ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en' LC_ALL='en_US.UTF-8'
 
 # This limits recursive functions. see BASH(1)
 [[ -z "$FUNCNEST" ]] && export FUNCNEST=100          
@@ -23,3 +24,6 @@ if [ "$1" == "-h" ]; then
   usage
   exit 1
 fi
+
+export PYTHONIOENCODING=utf-8
+
